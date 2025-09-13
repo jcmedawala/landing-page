@@ -29,20 +29,24 @@ export default function WishlistForm({ isActive }: WishlistFormProps) {
     setError("")
 
     try {
-      // Simulate API call - replace with actual endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
 
-      // Store in localStorage for now (replace with actual backend)
-      const existingEmails = JSON.parse(localStorage.getItem("futurebankers-wishlist") || "[]")
-      if (!existingEmails.includes(email)) {
-        existingEmails.push(email)
-        localStorage.setItem("futurebankers-wishlist", JSON.stringify(existingEmails))
+      const data = await response.json()
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        setEmail("")
+      } else {
+        setError(data.error || "Something went wrong. Please try again.")
       }
-
-      setIsSubmitted(true)
-      setEmail("")
     } catch (err) {
-      setError("Something went wrong. Please try again.")
+      setError("Network error. Please check your connection and try again.")
     } finally {
       setIsSubmitting(false)
     }
