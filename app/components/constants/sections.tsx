@@ -14,7 +14,7 @@ export const sections = [
   },
   {
     id: "about",
-    title: "Why FutureBankers?",
+    title: "Why Rakimu?",
     content:
       "We leverage cutting-edge AI to transform how financial institutions manage compliance, reduce operational risk, and streamline regulatory processes.",
   },
