@@ -5,7 +5,7 @@ import { Inter } from "next/font/google"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "FutureBankers - RegTech Solutions",
+  title: "Rakimu - RegTech Solutions",
   description:
     "AI-powered RegTech solutions for financial crime risk management, QC optimization, and client onboarding",
     generator: 'v0.app'
